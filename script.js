@@ -12,7 +12,7 @@
 
 
 reduce('iphoneReduce','iphoneNumber');
-reduce('caseReduce','caseNumber')
+reduce('caseReduce','caseNumber');
 
 function reduce(id,iphoneOrCaseArea){
     const reduceNum = document.getElementById(id);
@@ -21,7 +21,9 @@ function reduce(id,iphoneOrCaseArea){
         if(reduceValue == 0){
             document.getElementById(iphoneOrCaseArea).value = 0;
         }
+        return reduceValue;
     })
+    // return reduceValue;
 }
 
 increse('iphoneIncrese','iphoneNumber');
@@ -31,5 +33,14 @@ function increse(id,iphoneOrCaseArea){
     const increseNum = document.getElementById(id);
     increseNum.addEventListener('click', function(){
     const increseValue = document.getElementById(iphoneOrCaseArea).value++;
+    
+    return increseValue;
 })
+    let increseNewValue = increseValue + 0;
+    console.log(increseNewValue)
 }
+const casePrice = document.getElementById('currentCasePrice').innerText;
+const parseCasePrice = parseFloat(casePrice);
+const totalCasePrice = increseNewValue * parseCasePrice;
+document.getElementById('currentCasePrice').innerText = totalCasePrice;
+
