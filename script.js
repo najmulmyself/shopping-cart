@@ -57,3 +57,21 @@ document.getElementById('iphoneIncrese').addEventListener('click',function(){
     const total = caseCount * 1219;
     document.getElementById('totalPhonePrice').innerText = '$' + total;
 })
+
+document.getElementById('caseReduce').addEventListener('click',function(){
+    const reduceNum = document.getElementById('caseNumber');
+    const parseNum = parseInt(reduceNum.value);
+    const caseCount = parseNum - 1;
+    reduceNum.value = caseCount;
+    const total = caseCount * 59;
+    document.getElementById('currentCasePrice').innerText = total;
+});
+
+document.getElementById('caseIncrese').addEventListener('click',function(){
+    const increseNum = document.getElementById('caseNumber');
+    const parseNum = parseInt(increseNum.value);
+    const caseCount = parseNum + 1;
+    increseNum.value = caseCount;
+    const total = caseCount * 59;
+    document.getElementById('currentCasePrice').innerText = total;
+});
