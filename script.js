@@ -131,4 +131,34 @@ function eventHandler (product,isIncrese){
         total = productNewCount * 59 ;
     }
     document.getElementById(product+'Price').innerText = total;
+    calculateTotal(); 
+};
+
+function calculateTotal(){
+    const phoneCount = getInputValue('iphone');
+    const caseCount = getInputValue('case');
+
+    // const phoneInput = document.getElementById('iphoneNumber');
+    // const phoneCount = parseInt(phoneInput.value);
+
+    // const caseInput = document.getElementById('caseNumber');
+    // const caseCount = parseInt(caseInput.value);
+
+    const total = phoneCount * 1219 + caseCount * 59 ;
+    document.getElementById('total-price').innerText = '$' + total;
+
+    const tax = document.getElementById('tax-amount');
+    const taxAmount = parseInt(tax.value);
+    
+    const taxCount = Math.round(total * 0.1);
+    document.getElementById('tax-amount').innerText = '$' + taxCount;
+
+    const grandTotal = total + tax ;
+    document.getElementById('grand-total').innerText = '$' + grandTotal;
+};
+
+function getInputValue(product){
+    const productInput = document.getElementById(product + 'Number');
+    const productCount = parseInt(productInput.value);
+    return productCount;
 }
