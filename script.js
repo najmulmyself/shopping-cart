@@ -78,32 +78,57 @@
 //     document.getElementById('currentCasePrice').innerText = total;
 // });
 
-function caseEventHandler(isIncrese){
-        const caseInput = document.getElementById('caseNumber');
-        const caseParseCount = parseInt(caseInput.value);
-        let caseNewCount = caseParseCount;
-        if(isIncrese == true){
-            caseNewCount = caseParseCount + 1 ;
-        }
-        if(isIncrese == false && caseNewCount > 0){
-            caseNewCount = caseParseCount - 1 ;
-        }
-        caseInput.value = caseNewCount;
-        const total = caseNewCount * 59;
-        document.getElementById('currentCasePrice').innerText = total;
-};
+// * Two Common Function for Code
 
-function phoneEventHandler(isIncrese){
-    const phoneInput = document.getElementById('iphoneNumber');
-    const phoneParseCount = parseInt(phoneInput.value);
-    let phoneNewCount = phoneParseCount;
-    if(isIncrese == true){
-        phoneNewCount = phoneParseCount + 1;
+// function caseEventHandler(isIncrese){
+//         const caseInput = document.getElementById('caseNumber');
+//         const caseParseCount = parseInt(caseInput.value);
+//         let caseNewCount = caseParseCount;
+//         if(isIncrese == true){
+//             caseNewCount = caseParseCount + 1 ;
+//         }
+//         if(isIncrese == false && caseNewCount > 0){
+//             caseNewCount = caseParseCount - 1 ;
+//         }
+//         caseInput.value = caseNewCount;
+//         const total = caseNewCount * 59;
+//         document.getElementById('currentCasePrice').innerText = total;
+// };
+
+// function phoneEventHandler(isIncrese){
+//     const phoneInput = document.getElementById('iphoneNumber');
+//     const phoneParseCount = parseInt(phoneInput.value);
+//     let phoneNewCount = phoneParseCount;
+//     if(isIncrese == true){
+//         phoneNewCount = phoneParseCount + 1;
+//     }
+//     if(isIncrese == false && phoneNewCount > 0){
+//         phoneNewCount = phoneParseCount - 1;
+//     }
+//     phoneInput.value = phoneNewCount;
+//     const total = phoneNewCount * 1219;
+//     document.getElementById('totalPhonePrice').innerText = total;
+// };
+
+// TODO make code more Optimizable with Specific Function
+
+function eventHandler (product,isIncrese){
+    const productInput = document.getElementById(product+'Number');
+    const parseNum = parseInt(productInput.value);
+    let productNewCount = parseNum;
+    if(isIncrese == true ){
+        productNewCount = parseNum + 1;
     }
-    if(isIncrese == false && phoneNewCount > 0){
-        phoneNewCount = phoneParseCount - 1;
+    if(isIncrese == false && parseNum > 0 ){
+        productNewCount = parseNum - 1;
     }
-    phoneInput.value = phoneNewCount;
-    const total = phoneNewCount * 1219;
-    document.getElementById('totalPhonePrice').innerText = total;
+    productInput.value = productNewCount;
+    let total = 0;
+    if (product == 'iphone'){
+        total = productNewCount * 1219 ;
+    }
+    if (product == 'case'){
+        total = productNewCount * 59 ;
+    }
+    document.getElementById(product+'Price').innerText = total;
 }
